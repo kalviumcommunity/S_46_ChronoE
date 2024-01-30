@@ -1,0 +1,9 @@
+{
+  "name": "ChronoE",
+  "version": "1.0.0",
+  "description": "Platform that explores time travel theories and concepts",
+  "main": "index.js",
+  "repository": "https://github.com/kalviumcommunity/S_46_ChronoE.git",
+  "author": "AlexCFrost <siva.ganesh.c18@gamil.com>",
+  "license": "MIT"
+}
