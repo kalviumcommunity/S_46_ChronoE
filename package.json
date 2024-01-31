@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/kalviumcommunity/S_46_ChronoE.git",
   "author": "AlexCFrost <siva.ganesh.c18@gamil.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
