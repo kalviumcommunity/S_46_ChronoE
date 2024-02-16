@@ -1,28 +1,16 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home(){
-    const [theorie, setTheories] = useState(null)
 
-    useEffect(()=>{
-        const fetchTheories = async ()=>{
-            const response = await fetch ('http://localhost:3000/api/theories')
-            const json = await response.json()
-            console.log(json)
-            if (response.ok){
-                setTheories(json)
-            }
-        }
-        fetchTheories()
-    },[])
+    // useEffect(()=>{
+    // },[])
 
 
     return(
         <div className="home">
-            <h2>Home</h2>
-            <div className="theories">
-                {theorie && theorie.map((theories)=>(
-                    <p key={theories._id}>{theories.theoryDetails}</p>
-                ))}
+            <div>
+                <Link to="/create">E=MC^2</Link>
             </div>
         </div>
     )

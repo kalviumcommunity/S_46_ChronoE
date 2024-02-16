@@ -1,8 +1,11 @@
 const express = require('express')
-const {createTheory,
+const {
+       createTheory,
        getTheories,
        deleteTheory,
-       updateTheory} = require('./Controller/theoryController')
+       updateTheory
+} = require("./Controller/theoryController")
+
 
 const router = express.Router()
 

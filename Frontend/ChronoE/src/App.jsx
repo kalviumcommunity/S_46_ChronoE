@@ -1,13 +1,13 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-
+import {Routes, Route} from 'react-router-dom'
 import Home from './slides/Home'
+import CreateTheory from './slides/CreateTheory'
+import UpdateTheory from './slides/UpdateTheory'
 import Navbar from './components/Navbar'
 
 function App() {
 
   return (
     <div className='App'>
-      <BrowserRouter>
       <Navbar />
         <div className='slides'>
           <Routes>
@@ -15,9 +15,16 @@ function App() {
               path="/"
               element={<Home/>}
             />
+            <Route
+              path="/create"
+              element={<CreateTheory/>}
+            />
+            <Route
+              path="/update"
+              element={<UpdateTheory/>}
+            />
           </Routes>
         </div>
-      </BrowserRouter>
     </div>
   )
 }
