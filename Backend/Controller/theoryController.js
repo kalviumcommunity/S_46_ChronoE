@@ -1,72 +1,71 @@
-const Theorie = require('../model/theories')
-const mongoose = require('mongoose')
+const Theorie = require("../model/theoryModel");
+const mongoose = require("mongoose");
 
 //Get all theories
-const getTheories = async(req, res)=>{
-    const theories = await Theorie.find({}).sort({createdAt: -1})
+const getTheories = async (req, res) => {
+  const theories = await Theorie.find({}).sort({ createdAt: -1 });
 
-
-    res.status(200).json(theories)
-}
-
+  res.status(200).json(theories);
+};
 
 //Create a new theory
-const createTheory = async (req, res)=>{
-    const {theoryDetails} = req.body
+const createTheory = async (req, res) => {
+  const { theoryDetails } = req.body;
 
-    try{
-        const theorie = await Theorie.create({theoryDetails})
-        res.status(200).json(theorie)
-    } catch (error){
-        res.status(400).json({error: error.message})
-    }
+  try {
+    const theorie = await Theorie.create({ theoryDetails });
+    res.status(200).json(theorie);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 
-    res.json({messs: "post request accepted"})
-}
+  res.json({ messs: "post request accepted" });
+};
 
 // Delete theorie
 
-const deleteTheory = async(req, res)=>{
-    const { id } = req.params
+const deleteTheory = async (req, res) => {
+  const { id } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: "No such Theory"})
-    }
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such Theory" });
+  }
 
-    const theorie = await Theorie.findOneAndDelete({_id: id}) 
-    if (!theorie){
-        return res.status(400).json({error: 'No such Theory'})
-    }
+  const theorie = await Theorie.findOneAndDelete({ _id: id });
+  if (!theorie) {
+    return res.status(400).json({ error: "No such Theory" });
+  }
 
-    res.status(200).json(theorie)
-}
+  res.status(200).json(theorie);
+};
 
 // Update theory
 
-const updateTheory = async (req, res)=>{
-    const { id } = req.params
+const updateTheory = async (req, res) => {
+  const { id } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: "No such Theory"})
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such Theory" });
+  }
+
+  const theorie = await Theorie.findByIdAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
     }
+  );
 
-    const theorie = await Theorie.findByIdAndUpdate({_id: id},{
-        ...req.body
-    })
-   
-    if (!theorie){
-        return res.status(400).json({error: 'No such Theory'})
-    }
+  if (!theorie) {
+    return res.status(400).json({ error: "No such Theory" });
+  }
 
-    res.status(200).json(theorie)
+  res.status(200).json(theorie);
+};
 
-}
-
-
-// Exporting 
+// Exporting
 module.exports = {
-    createTheory,
-    getTheories,
-    deleteTheory,
-    updateTheory
-}
+  createTheory,
+  getTheories,
+  deleteTheory,
+  updateTheory,
+};
