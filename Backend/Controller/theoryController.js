@@ -18,9 +18,8 @@ const createTheory = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-
-  res.json({ messs: "post request accepted" });
 };
+
 
 // Delete theorie
 
