@@ -11,6 +11,16 @@ function Home() {
             .catch((err) => console.log(err));
     }, []);
 
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3000/api/theories/${id}`);
+            setTheoryHome(theoryHome.filter(theory => theory._id !== id));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
     return (
         <div className="home">
             <div>
@@ -19,6 +29,8 @@ function Home() {
                     {theoryHome.map((theory, index) => (
                         <div key={index}>
                             {theory.theoryDetails}
+                            <button><Link to={`/update/${theory._id}`}>Update</Link></button>
+                            <button onClick={() => handleDelete(theory._id)}>Delete</button>
                         </div>
                     ))}
                 </div>

@@ -20,7 +20,7 @@ function App() {
               element={<CreateTheory/>}
             />
             <Route
-              path="/update"
+              path="/update/:id"
               element={<UpdateTheory/>}
             />
           </Routes>
