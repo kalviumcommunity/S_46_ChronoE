@@ -8,6 +8,19 @@ const getTheories = async (req, res) => {
   res.status(200).json(theories);
 };
 
+// Get single workout
+const getTheory = async(req, res) =>{
+  const {id} = req.params
+
+  const theorie = await Theorie.findById(id)
+
+  if(!theorie){
+    return res.status(404).json({error: "no such theorie"})
+  }
+
+  res.status(200).json(theorie)
+}
+
 //Create a new theory
 const createTheory = async (req, res) => {
   const { theoryDetails } = req.body;
@@ -20,8 +33,12 @@ const createTheory = async (req, res) => {
   }
 };
 
+// Delete a single Theory
 
-// Delete theorie
+
+
+
+// Delete theories
 
 const deleteTheory = async (req, res) => {
   const { id } = req.params;
@@ -65,6 +82,7 @@ const updateTheory = async (req, res) => {
 module.exports = {
   createTheory,
   getTheories,
+  getTheory,
   deleteTheory,
   updateTheory,
 };
