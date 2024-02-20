@@ -2137,6 +2137,13 @@ p-locate@^5.0.0:
   dependencies:
     p-limit "^3.0.2"
 
+params@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/params/-/params-0.1.1.tgz#8b4864aa7e505575209ba32f94b04da493a10234"
+  integrity sha512-SpAsp2lVEKAX0y+j0w0w1VjPCI4a6M7WegcCo13jv157z/u88MC86aWTR9ggC+k9Cw0EnaEbEpcIOCtmP3pwVA==
+  dependencies:
+    type-detect "~0.1.2"
+
 parent-module@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-1.0.1.tgz#691d2709e78c79fae3a156622452d00762caaaa2"
@@ -2547,6 +2554,11 @@ type-check@^0.4.0, type-check@~0.4.0:
   integrity sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==
   dependencies:
     prelude-ls "^1.2.1"
+
+type-detect@~0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-0.1.2.tgz#c88e853e54e5abd88f1bf3194b477c853c94f854"
+  integrity sha512-lR9v7XFtwvnGHYwutLHzWTItsWN4r8OvAPSYrGf8F8Wn3eQXxMIjfQrLe8vq5s4MGDOTUot/d4NSnuyIfhCEIg==
 
 type-fest@^0.20.2:
   version "0.20.2"
