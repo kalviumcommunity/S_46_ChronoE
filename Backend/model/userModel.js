@@ -35,7 +35,7 @@ userSchema.statics.signup = async function(email, password) {
     const exists = await this.findOne({ email });
 
     if(exists) {
-        throw Error('Email alredy exists')
+        throw Error('Email already exists')
     }
 
     const salt = await bcrypt.genSalt(10)
@@ -45,6 +45,29 @@ userSchema.statics.signup = async function(email, password) {
 
     return user;
 };
+
+// Login
+
+userSchema.statics.login = async function(email, password) {
+    if(!email || !password){
+        throw Error('All fields must be filled')
+    }
+
+    const user = await this.findOne({email})
+
+    if(!user) {
+        throw Error('Incorrect email')
+    }
+
+    const match = await bcrypt.compare(password, user.password)
+
+    if(!match) {
+        throw Error('Incorrect password')
+    }
+
+    return user
+
+}
 
 
 module.exports = mongoose.model('User', userSchema)

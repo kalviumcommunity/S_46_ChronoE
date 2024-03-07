@@ -3,10 +3,14 @@ const mongoose = require("mongoose");
 
 //Get all theories
 const getTheories = async (req, res) => {
-  const theories = await Theorie.find({}).sort({ createdAt: -1 });
+
+  const user_id = req.user._id
+
+  const theories = await Theorie.find();
 
   res.status(200).json(theories);
 };
+
 
 // Get single workout
 const getTheory = async(req, res) =>{
@@ -23,22 +27,19 @@ const getTheory = async(req, res) =>{
 
 //Create a new theory
 const createTheory = async (req, res) => {
-  const { theoryDetails } = req.body;
+  const { theoryDetails} = req.body;
 
   try {
-    const theorie = await Theorie.create({ theoryDetails });
+    const user_id  = req.user._id
+    const theorie = await Theorie.create({ theoryDetails, user_id});
     res.status(200).json(theorie);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-// Delete a single Theory
 
-
-
-
-// Delete theories
+// Delete theorie
 
 const deleteTheory = async (req, res) => {
   const { id } = req.params;
@@ -78,6 +79,8 @@ const updateTheory = async (req, res) => {
   res.status(200).json(theorie);
 };
 
+
+
 // Exporting
 module.exports = {
   createTheory,
@@ -85,4 +88,5 @@ module.exports = {
   getTheory,
   deleteTheory,
   updateTheory,
+
 };

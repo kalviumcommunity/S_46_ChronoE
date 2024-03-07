@@ -1,34 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
-
-body{
-  background-color: #f7f2f2;
-  margin: 0;
-  font-family: 'Poppins';
-}
-
-header{
-  background: #ffffff;
- padding-left: 10px;
-}
-
-header.container{
-  max-width: 1400px;
-  margin: 10;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-header a {
-   color: #f700ff;
-   text-decoration: none;
-}
-
-.slides{
-  max-width: 1400px;
-  padding: 20px;
-  margin: 0 auto;
-}
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
