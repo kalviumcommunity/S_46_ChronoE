@@ -1,28 +1,45 @@
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, Navigate} from 'react-router-dom'
+import { useAuthContext } from './hooks/useAuthContext'
+
 import Home from './slides/Home'
 import CreateTheory from './slides/CreateTheory'
 import UpdateTheory from './slides/UpdateTheory'
 import Navbar from './components/Navbar'
+import Login from './slides/Login'
+import Signup from './slides/signup.jsx'
+
 
 function App() {
+  const {user, logout} = useAuthContext()
 
   return (
-    <div className='App'>
+    <div className='App '>
       <Navbar />
         <div className='slides'>
           <Routes>
             <Route
               path="/"
-              element={<Home/>}
+              element={user ? <Home/>: <Navigate to="/login" />}
             />
             <Route
-              path="/create"
-              element={<CreateTheory/>}
+              path="/login"
+              element={!user ? <Login/> : <Navigate to="/" />}
             />
             <Route
-              path="/update/:id"
-              element={<UpdateTheory/>}
+              path="/signup"
+              element={!user ? <Signup/> : <Navigate to="/" />}
             />
+            {user && (
+            <>
+              <Route path='/create' element={<CreateTheory />} />
+              <Route path='/update/:id' element={<UpdateTheory />} />
+            </>
+          )}
+          <Route
+            path='/logout'
+            element={<Navigate to='/login' replace={true} />}
+            onClick={() => logout()}
+          />
           </Routes>
         </div>
     </div>
