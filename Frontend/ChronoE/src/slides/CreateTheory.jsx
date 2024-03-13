@@ -23,7 +23,7 @@ function CreateTheory() {
                 }
             };
 
-            const response = await axios.post("https://chronoe-time.onrender.com/api/theories/", { theoryDetails: theory }, config);
+            const response = await axios.post("http://localhost:3000/api/theories/", { theoryDetails: theory }, config);
             console.log(response);
             navigate('/');
         } catch (error) {

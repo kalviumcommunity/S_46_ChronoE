@@ -12,7 +12,7 @@ export const useSignup = () => {
         setError(null)
 
         try {
-            const response = await axios.post('https://chronoe-time.onrender.com/api/user/signup', {
+            const response = await axios.post('http://localhost:3000/api/user/signup', {
                 email,
                 password
             });
