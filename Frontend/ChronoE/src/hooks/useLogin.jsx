@@ -17,7 +17,10 @@ export const useLogin = () => {
                 password
             });
 
-            const json = response.data;
+            const { data: json, headers } = response;
+            const token = headers['set-cookie'];
+
+            document.cookie = token;
 
             localStorage.setItem('user', JSON.stringify(json))
 
