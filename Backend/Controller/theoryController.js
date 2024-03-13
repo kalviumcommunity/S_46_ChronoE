@@ -12,6 +12,7 @@ const getTheories = async (req, res) => {
 };
 
 
+
 // Get single workout
 const getTheory = async(req, res) =>{
   const {id} = req.params
