@@ -11,7 +11,7 @@ function UpdateTheory() {
     const { user } = useAuthContext();
 
     useEffect(() => {
-        axios.get(`https://chronoe-time.onrender.com/api/theories/${id}`)
+        axios.get(`http://localhost:3000/api/theories/${id}`)
             .then((result) => {
                 console.log(result);
                 setTheory(result.data.theoryDetails);
@@ -32,7 +32,7 @@ function UpdateTheory() {
             }
         };
 
-        axios.put(`https://chronoe-time.onrender.com0/api/theories/${id}`, { theoryDetails: theory }, config)
+        axios.put(`http://localhost:3000/api/theories/${id}`, { theoryDetails: theory }, config)
             .then((result) => {
                 console.log(result);
                 navigate('/');

@@ -20,7 +20,7 @@ function Home() {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get("https://chronoe-time.onrender.com/api/user/users");
+                const response = await axios.get("http://localhost:3000/api/user/users");
                 setUsers(response.data);
             } catch (error) {
                 console.error("Error fetching users:", error);
@@ -35,7 +35,7 @@ function Home() {
     useEffect(() => {
         const fetchTheories = async () => {
             try {
-                const response = await axios.get('https://chronoe-time.onrender.com/api/theories', {
+                const response = await axios.get('http://localhost:3000/api/theories', {
                     headers: {
                         Authorization: `Bearer ${user.token}`
                     }
@@ -53,7 +53,7 @@ function Home() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://chronoe-time.onrender.com/api/theories/${id}`, {
+            await axios.delete(`http://localhost:3000/api/theories/${id}`, {
                 headers: {
                     Authorization: `Bearer ${user.token}`
                 }
